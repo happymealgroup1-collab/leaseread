@@ -34,3 +34,12 @@ document.getElementById("analyzeBtn").onclick = () => {
 
   document.getElementById("results").innerHTML = resultsHTML;
 };
+//highlight clauses in the lease text
+let highlightedText = text;
+clauses.forEach(c => {
+  const regex = new RegExp(`(${c.word})`, "gi");
+  const color = c.risk === "High" ? "red" : c.risk === "Medium" ? "orange" : "green";
+  highlightedText = highlightedText.replace(regex, `<span style="background-color:${color}">$1</span>`);
+});
+document.getElementById("results").innerHTML = highlightedText;
+
