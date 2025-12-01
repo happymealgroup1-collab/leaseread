@@ -1,29 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeaseGuard Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>LeaseGuard – Lease Clause Highlighter</h2>
 
-document.getElementById("analyzeBtn").onclick = () => {
-  const text = document.getElementById("leaseInput").value;
+  <textarea id="leaseInput" placeholder="Paste your lease text here..."></textarea>
+  <button id="analyzeBtn">Analyze Lease</button>
 
-  const keywords = [
-    "rent",
-    "deposit",
-    "terminate",
-    "late fee",
-    "payment",
-    "renewal",
-    "break clause",
-    "damages"
-  ];
+  <h3>Detected Clauses:</h3>
+  <div id="results"></div>
 
-  let resultsHTML = "";
-
-  keywords.forEach(word => {
-    if (text.toLowerCase().includes(word.toLowerCase())) {
-      resultsHTML += `<p>Found clause: <strong>${word}</strong></p>`;
-    }
-  });
-
-  if (resultsHTML === "") {
-    resultsHTML = "<p>No key clauses detected yet — try adding more text.</p>";
-  }
-
-  document.getElementById("results").innerHTML = resultsHTML;
-};
+  <script src="script.js"></script>
+</body>
+</html>
