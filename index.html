@@ -1,17 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>LeaseGuard Prototype</title>
+  <meta charset="UTF-8">
+  <title>LeaseRead, Student Lease Analyser</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Layout styles (safe to keep here) */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #4c6ef5;
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      border-bottom: 4px solid #364fc7;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    button {
+      background: #4c6ef5;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #364fc7;
+    }
+
+    #results {
+      margin-top: 25px;
+    }
+
+    .result-item {
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
+    .low {
+      border-left: 6px solid #4caf50;
+      background: #eaf8ea;
+    }
+
+    .medium {
+      border-left: 6px solid #ffb300;
+      background: #fff7e6;
+    }
+
+    .high {
+      border-left: 6px solid #e53935;
+      background: #fdecea;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 30px;
+    }
+  </style>
 </head>
+
 <body>
-  <h2>LeaseGuard – Lease Clause Highlighter (UK Student Lease)</h2>
 
-  <textarea id="leaseInput" placeholder="Paste your lease text here..."></textarea>
-  <button id="analyzeBtn">Analyse Lease</button>
+  <!-- HEADER -->
+  <header>
+    <h1>LeaseRead</h1>
+    <p>Stop getting lost in your lease, let our AI highlight the key terms for you.</p>
+  </header>
 
-  <h3>Detected Clauses:</h3>
-  <div id="results"></div>
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+
+    <h2>Paste Your Lease Below</h2>
+    <p>We’ll scan it for important terms, risk levels, and anything you should be aware of.</p>
+
+    <textarea id="leaseInput" placeholder="Paste your tenancy agreement here..."></textarea>
+
+    <button id="analyzeBtn">Analyse Lease</button>
+
+    <h2 style="margin-top: 30px;">Detected Clauses</h2>
+    <div id="results"></div>
+
+    <!-- DISCLAIMER -->
+    <div style="margin-top: 30px; padding: 15px; background: #f8f9fa; border-left: 5px solid #999; border-radius: 8px;">
+      <strong>Disclaimer:</strong>  
+      This tool provides general informational assistance only and does not constitute legal advice.  
+      Please remove names, addresses, phone numbers, emails, or any other identifying information before pasting your lease.
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 LeaseRead – Student Housing Rights Support Tool
+  </footer>
 
   <script src="script.js"></script>
 </body>
